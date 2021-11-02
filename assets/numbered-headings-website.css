@@ -6,7 +6,7 @@ div section h1 {
   counter-reset: h2;
 }
 div section h1:before {
-  content: counter(h1) ". ";
+  content: counter(chapter-number) "." counter(h1) ". ";
   counter-increment: h1;
 }
 
@@ -14,7 +14,7 @@ div section h2 {
   counter-reset: h3;
 }
 div section h2:before {
-  content: counter(h1) "." counter(h2);
+  content: counter(chapter-number) "." counter(h1) "." counter(h2);
   padding-right: 5px;
   counter-increment: h2;
 }
@@ -23,7 +23,7 @@ div section h3 {
   counter-reset: h4;
 }
 div section h3:before {
-  content: counter(h1) "." counter(h2) "." counter(h3);
+  content: counter(chapter-number) "." counter(h1) "." counter(h2) "." counter(h3);
   padding-right: 5px;
   counter-increment: h3;
 }
@@ -32,13 +32,13 @@ div section h4 {
   counter-reset: h5;
 }
 div section h4:before {
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4);
+  content: counter(chapter-number) "." counter(h1) "." counter(h2) "." counter(h3) "." counter(h4);
   padding-right: 5px;
   counter-increment: h4;
 }
 
 div section h5:before {
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+  content: counter(chapter-number) "." counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
   padding-right: 5px;
   counter-increment: h5;
 }

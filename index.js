@@ -1,7 +1,7 @@
 var RESET_TEMPLATE = [
   '<style>',
   'body {',
-  '  counter-reset: h1 SECTION_NUM;',
+  '  counter-reset: h1 SECTION_NUM chapter-number CHAPTER_NUM;',
   '}',
   '</style>'
 ].join('\n') + '\n';
@@ -21,8 +21,10 @@ module.exports = {
   },
   hooks: {
     'page:before': function(page) {
-      var sectionNum = page.progress.current.index;
-      var counterReset = RESET_TEMPLATE.replace(/SECTION_NUM/, sectionNum);
+      var levelParts = page.level.split('.');
+      var sectionNum = Number(levelParts[1] - 1);
+      var chapterNum = Number(levelParts[0]);
+      var counterReset = RESET_TEMPLATE.replace(/SECTION_NUM/, sectionNum).replace(/CHAPTER_NUM/, chapterNum);
       page.content = counterReset + page.content;
 
       return page;
